@@ -4,6 +4,10 @@
 # Exit immediately if a command exits with a non‑zero status.
 set -euo pipefail
 
+export PATH="/usr/local/go-1.26.1/bin:/home/kiri/go/bin:$PATH"
+
+echo "Running checks..."
+
 # Format Go code
 go fmt ./...
 
@@ -24,3 +28,5 @@ go vet -v ./...
 
 # Are there bugs, bad practices or code smells?
 staticcheck ./...
+
+echo "Checks successful!" | lolcat
