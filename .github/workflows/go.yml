@@ -20,8 +20,8 @@ jobs:
       with:
         go-version: 'stable'
     
-  #  - name: Download dependencies
-  #    run: go mod tidy   
+    - name: Download dependencies
+      run: go mod tidy   
 
     - name: Build
       run: go build -v ./...
