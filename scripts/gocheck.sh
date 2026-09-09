@@ -2,15 +2,15 @@
 
 
 # Exit immediately if a command exits with a non‑zero status.
-set -euo pipefail
-
-echo "Running checks..."
+set -e
 
 # Format Go code
 go fmt ./...
 
 # Does this code compile?
 go build -o simctl ./cmd/simctl
+
+# how do we see if test files exist for each file?
 
 # Run tests for the current module and all its sub‑packages -- Do the tests pass?
 go test -v ./...
@@ -26,5 +26,3 @@ go vet -v ./...
 
 # Are there bugs, bad practices or code smells?
 staticcheck ./...
-
-echo "Checks successful!"
